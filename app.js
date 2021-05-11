@@ -47,9 +47,13 @@ window.onload = function() {
         if (number_of_people.value == "") {
             alert("Please enter the number of people splitting the tip.")
         } else {
-        final.innerHTML = priceHolder + "," + number_of_people.value;
         priceHolder += "," + number_of_people.value;
         console.log(priceHolder);
+        let splitted = priceHolder.split(",");
+        let preAnswer = (Number(splitted[0]) * Number(splitted[1])) / Number(splitted[2]);
+        let answer = "$ " + preAnswer.toFixed(2);
+        console.log(answer)
+        final.innerHTML = answer;
         formBody3.style.display = "none";
         formBody4.style.display = "grid";
         }
